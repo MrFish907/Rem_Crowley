@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Medical Records</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+    #loginBox {
+      background: white;
+      border: 2px solid #0077cc;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    input[type="password"] {
+      padding: 8px;
+      width: 80%;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #content {
+      display: none;
+      margin-top: 20px;
+      max-width: 600px;
+      text-align: left;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="loginBox">
+    <h2>Enter Access Code</h2>
+    <input type="password" id="password" placeholder="Password" />
+    <br />
+    <button onclick="checkPassword()">Unlock</button>
+    <div id="error">Incorrect password. Try again.</div>
+  </div>
+
+  <div id="content">
+    <h1>Confidential Medical Records</h1>
+    <p>Welcome to the secret archives...</p>
+    <p>Here you can place your ARG documents, notes, creepy files, images, etc.</p>
+  </div>
+
+  <script>
+    const correctPassword = "forgetmenot123"; // Change this to your in-game found password
+
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if(input === correctPassword) {
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } else {
+        const errorDiv = document.getElementById('error');
+        errorDiv.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
